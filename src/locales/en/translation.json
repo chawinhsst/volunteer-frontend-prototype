@@ -1,0 +1,200 @@
+{
+  "navbar": {
+    "brand": "Heart Rate Anomaly Detection",
+    "home": "Home",
+    "about": "About the Study",
+    "volunteers": "For Volunteers",
+    "register": "Register"
+  },
+  "homePage": {
+    "heroSection": {
+      "title1": "Help Advance",
+      "title2": "Research on Abnormal Heart Rate While Running",
+      "subtitle": "Be a part of providing your running data for an academic research project focused on developing machine learning models to detect heart rate anomalies while running.",
+      "ctaButton": "Become a Volunteer",
+      "learnMore": "Learn more"
+    },
+    "featuresSection": {
+      "subtitle": "Key Research Points",
+      "title": "Volunteer Data is Valuable, and Participant Privacy is a Top Priority.",
+      "features": [
+        { "name": "Impactful Data", "description": "Your anonymized data helps our research team build a more accurate model for detecting heart rate anomalies.", "icon": "HeartIcon" },
+        { "name": "Community Science", "description": "Join a group of volunteers dedicated to advancing health technology and sports science through academic research.", "icon": "UserGroupIcon" },
+        { "name": "Ethical & Private", "description": "This study is IRB-approved. Your data is used strictly for this research and you can withdraw at any time.", "icon": "ShieldCheckIcon" }
+      ]
+    },
+    "howItWorksSection": {
+      "subtitle": "A Simple Process",
+      "title": "How to Participate",
+      "steps": [
+        { "name": "1. Register & Consent", "description": "Sign up in minutes. You will be provided with a full consent form detailing the study before you commit.", "icon": "ClipboardDocumentListIcon" },
+        { "name": "2. Export Your Data", "description": "Follow our simple guide to export your past running data from apps like Garmin, Apple Health, or Strava.", "icon": "ArrowTrendingUpIcon" },
+        { "name": "3. Advance Research", "description": "Your anonymized data is securely received and used to develop and validate the anomaly detection model.", "icon": "AcademicCapIcon" }
+      ]
+    },
+    "trustSection": {
+      "subtitle": "Trust & Transparency",
+      "title": "Ethically Approved Research",
+      "irbTitle": "Full IRB Approval",
+      "irbDescription": "This study has received full ethical approval from the Institutional Review Board (IRB), Chulalongkorn University, ensuring the protection and rights of all participants are prioritized.",
+      "irbInfo": "COA No. 157/68 | Project No. 680041 | Valid until: June 8, 2026"
+    },
+    "researcherSection": {
+      "subtitle": "Project Researcher",
+      "title": "Meet Chawin Hansasuta",
+      "bio": "This research is being conducted as the primary component of his thesis for the <1>Master of Science in Software Engineering at Chulalongkorn University</1>. Combining his background as a university athlete with his professional experience as a Product Owner, Chawin is focused on applying machine learning to solve real-world challenges in sports science.",
+      "personalSite": "Personal Website",
+      "linkedIn": "LinkedIn Profile"
+    }
+  },
+  "aboutStudyPage": {
+    "hero": {
+      "subtitle": "The Research",
+      "title": "About the Study",
+      "description": "This study focuses on analyzing heart rate patterns during running using Unsupervised Machine Learning techniques to detect potential anomalies that may indicate cardiovascular risks."
+    },
+    "objectives": {
+      "title": "Project Objectives",
+      "list": [
+        "To develop an effective unsupervised machine learning model for detecting heart rate anomalies during running.",
+        "To apply the developed model to real-time data from wearable devices to provide early warnings.",
+        "To reduce the risk of unforeseen heart failure events during exercise."
+      ]
+    },
+    "methodology": {
+      "title": "Methodology & Technology",
+      "description": "The core of this research involves analyzing heart rate data using several unsupervised machine learning algorithms to cluster data and identify anomalies. The primary algorithms include:",
+      "algorithms": ["K-means Clustering", "Random Forest", "Isolation Forest", "Local Outlier Factor (LOF)", "Support Vector Machines (SVMs)", "K-Nearest Neighbors (k-NNs)"]
+    },
+    "timeline": {
+      "title": "Project Timeline",
+      "timelineData": [
+        { "phase": "Phase 1: Preparation & Ethics Approval", "duration": "Feb 1, 2025 - Jun 15, 2025" },
+        { "phase": "Phase 2: Algorithm Development", "duration": "Feb 1, 2025 - Mar 19, 2025" },
+        { "phase": "Phase 3: Application Development", "duration": "Mar 1, 2025 - Apr 30, 2025" },
+        { "phase": "Phase 4: Data Collection & Refinement", "duration": "Jun 15, 2025 – Jul 18, 2025" },
+        { "phase": "Phase 5: Thesis Preparation", "duration": "Jul 19, 2025 – Aug 17, 2025" },
+        { "phase": "Phase 6: Final Examination Prep", "duration": "Aug 18, 2025 – Aug 22, 2025" }
+      ]
+    }
+  },
+  "volunteerInfoPage": {
+    "title": "Information for Volunteers",
+    "subtitle": "Everything you need to know about participating in the study.",
+    "faq": [
+      {
+        "q": "Who is eligible to participate?",
+        "a": "We are looking for individuals aged 18-60 who run at least 3 times per week and have been doing so for at least one month. Participants must use a smart device (like a Garmin, Apple Watch, etc.) to record their running data."
+      },
+      {
+        "q": "What is the process for participating?",
+        "a": "The researcher will explain the project objectives and ask for your permission to access your running data. You will then be guided on how to export and send your data (e.g., heart rate, speed, distance) from your fitness app. The process takes about 10-20 minutes and is a one-time data collection."
+      },
+      {
+        "q": "Are there any risks?",
+        "a": "There are no physical risks as the research only uses existing data from your device. You might feel some inconvenience giving access to your data or spend 10-20 minutes of your time. If you feel uncomfortable at any point, you can ask the researcher for help or withdraw."
+      },
+      {
+        "q": "How is my privacy and data protected?",
+        "a": "Your privacy is our top priority. The data used will not include your name, email, or other personal identifiers. All data will be presented in an aggregated, summary form and will be stored securely. All digital files will be destroyed after the research is complete."
+      },
+      {
+        "q": "What are the benefits of participating?",
+        "a": "While there are no direct benefits to you, your participation is a valuable contribution to sports science. The results will help develop technology for real-time health monitoring, potentially reducing the risk of sudden cardiac events for runners in the future."
+      }
+    ]
+  },
+  "countries": [
+    "Afghanistan", "Albania", "Algeria", "Andorra", "Angola", "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria", "Azerbaijan",
+    "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin", "Bhutan", "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei", "Bulgaria", "Burkina Faso", "Burundi",
+    "Cabo Verde", "Cambodia", "Cameroon", "Canada", "Central African Republic", "Chad", "Chile", "China", "Colombia", "Comoros", "Congo, Democratic Republic of the", "Congo, Republic of the", "Costa Rica", "Croatia", "Cuba", "Cyprus", "Czech Republic",
+    "Denmark", "Djibouti", "Dominica", "Dominican Republic",
+    "Ecuador", "Egypt", "El Salvador", "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+    "Fiji", "Finland", "France",
+    "Gabon", "Gambia", "Georgia", "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana",
+    "Haiti", "Honduras", "Hungary",
+    "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Italy", "Ivory Coast",
+    "Jamaica", "Japan", "Jordan",
+    "Kazakhstan", "Kenya", "Kiribati", "Kosovo", "Kuwait", "Kyrgyzstan",
+    "Laos", "Latvia", "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein", "Lithuania", "Luxembourg",
+    "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania", "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco", "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar (Burma)",
+    "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand", "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia", "Norway",
+    "Oman",
+    "Pakistan", "Palau", "Palestine State", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland", "Portugal",
+    "Qatar",
+    "Romania", "Russia", "Rwanda",
+    "Saint Kitts and Nevis", "Saint Lucia", "Saint Vincent and the Grenadines", "Samoa", "San Marino", "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia", "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia", "Solomon Islands", "Somalia", "South Africa", "South Korea", "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname", "Sweden", "Switzerland", "Syria",
+    "Taiwan", "Tajikistan", "Tanzania", "Thailand", "Timor-Leste", "Togo", "Tonga", "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan", "Tuvalu",
+    "Uganda", "Ukraine", "United Arab Emirates", "United Kingdom", "United States of America", "Uruguay", "Uzbekistan",
+    "Vanuatu", "Vatican City", "Venezuela", "Vietnam",
+    "Yemen",
+    "Zambia", "Zimbabwe"
+  ],
+  "registerPage": {
+    "title": "Volunteer Registration Form",
+    "success": {
+      "title": "Registration Submitted",
+      "message": "Thank you for your interest. The researcher will contact you shortly with the official consent form (e-doc or paper) and instructions for submitting your data."
+    },
+    "labels": {
+      "firstName": "First Name",
+      "middleName": "Middle Name",
+      "lastName": "Last Name",
+      "optional": "(Optional)",
+      "contactEmail": "Contact Email",
+      "telephone": "Telephone",
+      "gender": "Gender",
+      "nationality": "Nationality",
+      "dob": "Date of Birth",
+      "platform": "Primary Running Platform",
+      "smartwatch": "Smartwatch Brand",
+      "runFrequency": "How often do you run?",
+      "consent": "Acknowledgement & Initial Consent"
+    },
+    "placeholders": {
+      "select": "Select...",
+      "selectPlatform": "Select Platform...",
+      "selectBrand": "Select Brand...",
+      "selectFrequency": "Select Frequency...",
+      "nationalityInput": "Type or select a country",
+      "noNationalityFound": "No results found for \"{{value}}\""
+    },
+    "info": {
+      "nameCollection": "Your name is collected for the purpose of signing the consent form only. It will be kept separate from your health data, which will be fully anonymized for all research purposes."
+    },
+    "age": {
+      "calculatedAge": "Calculated Age: <1>{{years}}</1> years, <1>{{months}}</1> months, <1>{{days}}</1> days"
+    },
+    "consent": {
+      "downloadButton": "Download Full Consent Form (PDF)",
+      "description": "By checking this box, I acknowledge that I have had the opportunity to review the full consent form. I agree to be contacted by the researcher to provide formal signed consent (via e-document or paper) and to proceed with the study.",
+      "alert": "Please acknowledge the consent information to proceed."
+    },
+    "buttons": {
+      "submit": "Submit Initial Registration",
+      "submitting": "Submitting..."
+    },
+    "options": {
+      "gender": [
+        { "value": "Male", "label": "Male" },
+        { "value": "Female", "label": "Female" }
+      ],
+      "platforms": [
+        "Adidas Running (Runtastic)", "Apple Health / Fitness", "Garmin Connect", "MapMyRun", "Nike Run Club",
+        "Peloton", "Polar Flow", "Strava", "TrainingPeaks", "Wahoo", "Zwift", "Other"
+      ],
+      "brands": [
+        "Apple Watch", "COROS", "Fitbit", "Garmin", "Huawei", "Polar", "Samsung", "Suunto", "Whoop", "Other"
+      ],
+      "frequencies": [
+        "Every day", "5-6 times a week", "3-4 times a week", "1-2 times a week", "Less than once a week"
+      ]
+    },
+    "errors": {
+      "required": "This field is required",
+      "invalidEmail": "Please enter a valid email address",
+      "consentRequired": "You must consent to proceed",
+      "invalidDobFuture": "Date of birth cannot be in the future"
+    }
+  }
+}

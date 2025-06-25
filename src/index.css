@@ -1,0 +1,39 @@
+/* 1. This single URL now imports BOTH Inter and Kanit fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kanit:wght@300;400;500;600;700&display=swap');
+
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background: linear-gradient(-45deg, theme('colors.blue.100'), theme('colors.slate.50'), theme('colors.white'), theme('colors.violet.100'));
+    background-size: 400% 400%;
+    animation: gradient-animation 20s ease infinite;
+  }
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* 2. Our style rules to apply the correct font based on the language class */
+.lang-en {
+  font-family: 'Inter', sans-serif;
+}
+ 
+.lang-th {
+  font-family: 'Kanit', sans-serif;
+}
