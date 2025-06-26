@@ -30,11 +30,12 @@ export default function RegisterPage() {
     firstName: '', middleName: '', lastName: '',
     email: '', phone: '', gender: '', nationality: '',
     dob: '', platform: '', smartwatch: '', runFrequency: '',
-    consent: false,
+    consent_acknowledged: false,
   });
   const [status, setStatus] = useState('idle');
   const age = useMemo(() => calculateAge(formData.dob), [formData.dob]);
   const [errors, setErrors] = useState({});
+  const [serverError, setServerError] = useState('');
 
   const genderOptions = t('registerPage.options.gender', { returnObjects: true });
   const platformOptions = t('registerPage.options.platforms', { returnObjects: true });
@@ -75,13 +76,42 @@ export default function RegisterPage() {
     if (!formData.platform) newErrors.platform = t('registerPage.errors.required');
     if (!formData.smartwatch) newErrors.smartwatch = t('registerPage.errors.required');
     if (!formData.runFrequency) newErrors.runFrequency = t('registerPage.errors.required');
-    if (!formData.consent) newErrors.consent = t('registerPage.errors.consentRequired');
+    if (!formData.consent_acknowledged) newErrors.consent = t('registerPage.errors.consentRequired');
     
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
+  const handleEmailBlur = async (e) => {
+    const email = e.target.value;
+    if (!/\S+@\S+\.\S+/.test(email)) {
+      return; 
+    }
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/volunteers/check-email/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      });
+      const data = await response.json();
+      if (data.is_taken) {
+        setErrors(prev => ({ ...prev, email: t('registerPage.errors.emailExists') }));
+      } else {
+        const newErrors = { ...errors };
+        // Only clear the email error if it's the 'email exists' error
+        if (newErrors.email === t('registerPage.errors.emailExists')) {
+          delete newErrors.email;
+          setErrors(newErrors);
+        }
+      }
+    } catch (error) {
+      console.error("Could not check email:", error);
+    }
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setServerError('');
     const formErrors = validateForm();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
@@ -89,7 +119,45 @@ export default function RegisterPage() {
     }
     setErrors({});
     setStatus('submitting');
-    setTimeout(() => { setStatus('success'); }, 1500);
+    
+    const submissionData = {
+        first_name: formData.firstName,
+        middle_name: formData.middleName,
+        last_name: formData.lastName,
+        email: formData.email,
+        phone: formData.phone,
+        gender: formData.gender,
+        nationality: formData.nationality,
+        date_of_birth: formData.dob,
+        platform: formData.platform,
+        smartwatch: formData.smartwatch,
+        run_frequency: formData.runFrequency,
+        consent_acknowledged: formData.consent_acknowledged,
+    };
+
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/volunteers/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(submissionData),
+      });
+
+      if (response.ok) {
+        setStatus('success');
+      } else {
+        const errorData = await response.json();
+        if (errorData.email) {
+          setErrors({ email: t('registerPage.errors.emailExists') });
+        } else {
+          const errorMessage = Object.entries(errorData).map(([field, messages]) => `${field}: ${messages.join(' ')}`).join(' ');
+          setServerError(`An error occurred: ${errorMessage}`);
+        }
+        setStatus('idle');
+      }
+    } catch (error) {
+      setServerError('Could not connect to the server. Please ensure the backend is running and try again.');
+      setStatus('idle');
+    }
   };
 
   if (status === 'success') {
@@ -144,7 +212,7 @@ export default function RegisterPage() {
             <div className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2">
               <div>
                 <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">{t('registerPage.labels.contactEmail')}</label>
-                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} required 
+                <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} onBlur={handleEmailBlur} required 
                   className={`mt-2 block w-full rounded-md border-0 py-2 px-3 text-gray-900 shadow-sm ring-1 ring-inset focus:ring-2 focus:ring-inset focus:ring-sky-600 ${errors.email ? 'ring-red-500' : 'ring-gray-300'}`}/>
                 {errors.email && <p className="mt-1 text-xs text-red-600">{errors.email}</p>}
               </div>
@@ -232,7 +300,7 @@ export default function RegisterPage() {
                 </div>
                  <div className="relative flex items-start">
                     <div className="flex h-6 items-center">
-                        <input type="checkbox" id="consent" name="consent" checked={formData.consent} onChange={handleChange} className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-600" />
+                        <input type="checkbox" id="consent" name="consent_acknowledged" checked={formData.consent_acknowledged} onChange={handleChange} className="h-4 w-4 rounded border-gray-300 text-sky-600 focus:ring-sky-600" />
                     </div>
                     <div className="ml-3 text-sm leading-6">
                         <label htmlFor="consent" className="font-medium text-gray-900">
@@ -249,6 +317,7 @@ export default function RegisterPage() {
                 {status === 'submitting' ? <><Spinner /> {t('registerPage.buttons.submitting')}</> : t('registerPage.buttons.submit')}
               </button>
             </div>
+            {serverError && <p className="mt-4 text-center text-sm text-red-600">{serverError}</p>}
           </form>
         </div>
       </div>

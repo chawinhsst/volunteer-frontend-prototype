@@ -194,7 +194,8 @@
       "required": "This field is required",
       "invalidEmail": "Please enter a valid email address",
       "consentRequired": "You must consent to proceed",
-      "invalidDobFuture": "Date of birth cannot be in the future"
+      "invalidDobFuture": "Date of birth cannot be in the future",
+      "emailExists": "This email address has already been registered."
     }
   }
 }
