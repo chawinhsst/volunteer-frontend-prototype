@@ -4,6 +4,12 @@ import { useTranslation, Trans } from 'react-i18next';
 import { UserPlusIcon, CheckCircleIcon, InformationCircleIcon, DocumentArrowDownIcon } from '@heroicons/react/24/solid';
 import NationalityInput from '../components/NationalityInput';
 
+// This line reads the API URL from your environment variables.
+// In development, it falls back to your local server.
+// In production, it will use the live URL you set on Render.
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
+
+
 const Spinner = () => (
   <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
@@ -88,7 +94,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/volunteers/check-email/', {
+      const response = await fetch(`${API_BASE_URL}/api/volunteers/check-email/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: email })
@@ -98,7 +104,6 @@ export default function RegisterPage() {
         setErrors(prev => ({ ...prev, email: t('registerPage.errors.emailExists') }));
       } else {
         const newErrors = { ...errors };
-        // Only clear the email error if it's the 'email exists' error
         if (newErrors.email === t('registerPage.errors.emailExists')) {
           delete newErrors.email;
           setErrors(newErrors);
@@ -136,9 +141,11 @@ export default function RegisterPage() {
     };
 
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/volunteers/', {
+      const response = await fetch(`${API_BASE_URL}/api/volunteers/`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+        },
         body: JSON.stringify(submissionData),
       });
 
